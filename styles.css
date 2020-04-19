@@ -12,7 +12,7 @@
 	visibility: visible;
 }
 
-.fname-warning:after, .lname-warning:after, .email-warning:after, .zip-warning:after, .age-warning:after {
+.fname-warning:after, .lname-warning:after, .email-warning:after, .zip-warning:after, .bday-warning:after {
 	visibility: visible;
 	position: absolute;
 	top: 0;
@@ -31,6 +31,6 @@
 	content: "Must be a valid, i.e. 12345 or 12345-4321";
 }
 
-.age-warning:after {
+.bday-warning:after {
 	content: "Must be over 18";
 }

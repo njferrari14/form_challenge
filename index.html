@@ -12,7 +12,7 @@
 
 	<!-- Styles & Scripts
 	==================================== -->
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -22,38 +22,51 @@
 	<div class="fields">
 		<div class="field">
 			<label for="fname">First Name:</label>
-			<input type="text" id="fname" name="fname" placeholder="Remy">
+			<input type="text" id="fname" name="fname" placeholder="Remy" required>
+			<span class="warning hidden">Please enter a first name</span>
 		</div>
 		<div class="field">
 			<label for="lname">Last Name:</label>
-			<input type="text" id="lname" name="lname" placeholder="LeBeau">
+			<input type="text" id="lname" name="lname" placeholder="LeBeau" required>
+			<span class="warning hidden">Please enter a last name</span>
 		</div>
 		<div class="field">
 			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" placeholder="ragin_cajun@x-mail.com">
+			<input type="email" id="email" name="email" placeholder="ragin_cajun@x-mail.com" required>
+			<span class="warning hidden">Please enter an email</span>
 		</div>
 		<div class="field">
 			<label for="zip">Zip Code:</label>
-			<input type="number" id="zip" name="zip" placeholder="12345">
+			<input type="text" id="zip" name="zip" placeholder="12345" maxlength="10" required>
+			<span class="warning hidden">Please enter a valid zip code</span>
 		</div>
 		<div class="field">
-			<label for="age">Age:</label>
-			<input type="number" id="age" name="age">
+			<label for="bday">Birthday:</label>
+			<input type="date" id="bday" name="bday" required>
+			<span class="warning hidden">Please enter a valid birthdate</span>
 		</div>
 		<div class="field">
-			<label for="opt">Which boxes would you like to check?</label>
-			<input type="checkbox" id="opt" name="opt">
-		</div>
-		<div class="field">
-			<label for="radio"> - I agree to check this box</label>
+			<p>Which box would you like to check?</p>
 			<input type="radio" id="radio" name="radio">
+			<label for="radio">#1</label>
+			<input type="radio" id="radio" name="radio">
+			<label for="radio">#2</label>
+			<input type="radio" id="radio" name="radio">
+			<label for="radio">#3</label>
+			<input type="radio" id="radio" name="radio">
+			<label for="radio">#4</label>
 		</div>
 		<div class="field">
-			<label for="button">Submit!</label>
+			<label for="opt">I agree to the terms and conditions:</label>
+			<input type="checkbox" id="opt" name="opt" required>
+			<span class="warning hidden">Must agree to terms & conditions</span>
+		</div>
+		<div class="field">
 			<input type="submit" id="button" name="button">
 		</div>
 	</div>
 </form>
 
 </body>
+<script type="text/javascript" src="scripts.js"></script>
 </html>

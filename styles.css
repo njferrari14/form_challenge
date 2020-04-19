@@ -1,0 +1,36 @@
+.hidden {
+	visibility: hidden;
+	position: relative;
+}
+
+.warning, .warning:after {
+	font-size: .8em;
+	color: red;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.fname-warning:after, .lname-warning:after, .email-warning:after, .zip-warning:after, .age-warning:after {
+	visibility: visible;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fname-warning:after, .lname-warning:after {
+	content: "Name must contain only letters, hyphens, or apostrophes"
+}
+
+.email-warning:after {
+	content: "Email must be a valid format, i.e. email123@example.com";
+}
+
+.zip-warning:after {
+	content: "Must be a valid, i.e. 12345 or 12345-4321";
+}
+
+.age-warning:after {
+	content: "Must be over 18";
+}

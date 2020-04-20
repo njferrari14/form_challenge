@@ -43,7 +43,7 @@ function checkInput(field, input) {
 	//if there is no input, make warning visible
 	//else validate input
 	if (((input === '') && (type != 'radio')) || ((type === 'checkbox') && (!field.checked))) {
-		field.style.border = '2px solid red';
+		field.style.border = '2px inset red';
 		field.nextElementSibling.className += ' visible';
 		field.nextElementSibling.classList.remove('done');
 	} else if ((type != 'radio') && (type != 'checkbox') && (type != 'submit')) {
@@ -72,11 +72,11 @@ function validate(field, input, id) {
 	//if invalid, display correct warning, 
 	//else remove warning classes and turn border green
 	if (!isValid) {
-		field.style.border = '2px solid red';
+		field.style.border = '2px inset red';
 		field.nextElementSibling.classList.remove('done');
 		field.nextElementSibling.className = 'warning hidden ' + id + '-warning';
 	} else {
-		field.style.border = '2px solid green';
+		field.style.border = '2px inset green';
 		field.nextElementSibling.className = 'warning hidden done ';
 	}
 }
@@ -107,8 +107,8 @@ function isComplete() {
 //this is just for fun
 window.addEventListener('click', function(event) {
 	if (gottem.checked) {
-		gottem.nextElementSibling.className = 'visible gottem';
+		gottem.nextElementSibling.className = 'gottem';
 	} else {
-		gottem.nextElementSibling.className = 'hidden';
+		gottem.nextElementSibling.className = 'none';
 	}
 }, false);

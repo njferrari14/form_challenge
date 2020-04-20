@@ -1,6 +1,6 @@
-***************************************
-RESET
-***************************************/
+/*************
+CSS Reset
+**************/
 
 /* Box sizing rules */
 *,
@@ -81,7 +81,9 @@ select {
   }
 }
 
-/********************/
+/*****************
+Page Styles
+******************/
 
 html, body {
 	width: 100%;
@@ -89,8 +91,12 @@ html, body {
 }
 
 h1 {
+	font-size: 3em;
+	color: #0865D1;
+	text-shadow: -2px 1px 2px #053E80;
 	text-align: center;
 	margin: 50px auto;
+	tran
 }
 
 form {
@@ -98,9 +104,10 @@ form {
 	min-width: 320px;
 	padding: 20px;
 	margin: 0 auto;
-	border: 5px inset yellow;
+	border: 8px inset yellow;
 	border-radius: 15px;
 	background-color: #f0f0f0;
+	transition: border 1s, height 1s;
 }
 
 label:not(.last) {
@@ -119,8 +126,30 @@ label:not(.last) {
 #fname, #lname, #email, #zip, #bday {
 	border-radius: 5px;
 	padding-left: 5px;
-	border-color: yellow;
-	border-style: inset;
+	border: 3px inset yellow;
+	transition: border 1s;
+}
+
+.group {
+	background: #fff;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.r-block {
+	min-width: 40%;
+	display: inline-block;
+	position: relative;
+}
+
+.r-block label {
+	display: inline-block;
+	min-width: 40%;
+	float: left;
+}
+
+.r-block input {
+	float: left;
 }
 
 .button-box {]
@@ -132,7 +161,7 @@ label:not(.last) {
 	text-align: center;
 	grid-area: btn;
 	background-color: #909090;
-	margin: 0 auto 30px;
+	margin: 10px auto 30px;
 	color: yellow;
 	text-shadow: 1px 1px #101010;
 	font-weight: 900;
@@ -158,32 +187,9 @@ label:not(.last) {
 	box-shadow: 2px 3px #707070;
 }
 
-.group {
-	background: #fff;
-	border-radius: 5px;
-	padding: 15px;
-}
-
-.r-block {
-	min-width: 40%;
-	display: inline-block;
-	position: relative;
-}
-
-.r-block label {
-	display: inline-block;
-	min-width: 40%;
-	float: left;
-}
-
-.r-block:last-child label {
-	min-width: 20%;
-	padding-left: 20%;
-}
-
-.r-block input {
-	float: left;
-}
+/*****************
+JavaScript Styles
+******************/
 
 .hidden {
 	visibility: hidden;
@@ -213,10 +219,9 @@ label:not(.last) {
 }
 
 .gottem {
-	display: inline-block;
 	position: absolute;
-	top: 0;
-	left: 55%;
+	top: 15px;
+	left: 50%;
 	font-size: .8em;
 	color: blue;
 }
@@ -243,4 +248,14 @@ label:not(.last) {
 
 .bday-warning:after {
 	content: "Must be over 18";
+}
+
+/*****************
+Mobile Styles
+******************/
+
+@media only screen and (max-width: 837px) {
+	form {
+		width: 90%;
+	}
 }

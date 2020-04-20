@@ -46,18 +46,26 @@
 			<span class="warning hidden">Please enter a valid birthdate</span>
 		</div>
 		<div class="field">
-			<p>Would you like to click any of these?</p>
-			<label for="r1">This one:</label>
-			<input type="radio" id="r1" name="radio">
-			<label for="r2">No, this one:</label>
-			<input type="radio" id="r2" name="radio">
-			<label for="r3">This one, obvisously:</label>
-			<input type="radio" id="r3" name="radio">
-			<label for="r4">No</label>
-			<input type="radio" id="r4" name="radio">
-			<a href="https://i.giphy.com/media/S3Ot3hZ5bcy8o/giphy.gif" class="hidden"><span>&#35;gottem</span></a>
+			<p>Would you like to click any of these radio buttons?</p>
+			<div class="r-block">
+				<label for="r1">This one:</label>
+				<input type="radio" id="r1" name="radio">
+			</div>
+			<div class="r-block">
+				<label for="r2">Nah, this one:</label>
+				<input type="radio" id="r2" name="radio">
+			</div>
+			<div class="r-block">
+				<label for="r3">This one, obvisously:</label>
+				<input type="radio" id="r3" name="radio">
+			</div>
+			<div class="r-block">
+				<label for="r4">No!</label>
+				<input type="radio" id="r4" name="radio">
+				<a href="https://i.giphy.com/media/S3Ot3hZ5bcy8o/giphy.gif" class="hidden"><span>&#35;gottem</span></a>
+			</div>
 		</div>
-		<div class="field">
+		<div class="field clear">
 			<label for="opt">I agree to the terms and conditions:</label>
 			<input type="checkbox" id="opt" name="opt" required>
 			<span class="warning hidden">You must agree to terms & conditions in order to continue</span>

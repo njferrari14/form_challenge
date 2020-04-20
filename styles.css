@@ -12,6 +12,11 @@
 	visibility: visible;
 }
 
+.gottem {
+	font-size: .8em;
+	color: blue;
+}
+
 .fname-warning:after, .lname-warning:after, .email-warning:after, .zip-warning:after, .bday-warning:after {
 	visibility: visible;
 	position: absolute;

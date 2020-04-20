@@ -1,5 +1,6 @@
 //initialize variables
 let fields = document.querySelectorAll('input');
+let gottem = document.getElementById('r4');
 let validZip = /^\d{5}$|^\d{5}-\d{4}$/;
 let validName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
 let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
@@ -11,25 +12,30 @@ for (i = 0; i < fields.length; i++) {
 
 //set event listener for current element
 function setListener(field) {
-	//add event listeners to every input
-	//except the submit button
-	if (field.getAttributeNode("type").value != 'submit') {
-		//whenever focus is moved away from a field, 
-		//run validation on the field's content
+	let type = field.getAttributeNode('type').value;
+	//add focusout listeners to every input
+	//except the radio and submit buttons
+	if ((type != 'submit') && (type != 'radio')) {
 		field.addEventListener('focusout', function(event) {
 			checkInput(field, field.value);
 		}, false);
 	}
+	//this is just for fun
+	window.addEventListener('click', function(event) {
+		if (gottem.checked) {
+			gottem.nextElementSibling.className = 'visible gottem';
+		} else {
+			gottem.nextElementSibling.className = 'hidden';
+		}
+	}, false);
 }
 
-//
 function checkInput(field, input) {
 	//get value of attribute node type for current element
-	let type = event.target.getAttributeNode("type").value;
-	let id = event.target.getAttributeNode("id").value
+	let type = event.target.getAttributeNode('type').value;
+	let id = event.target.getAttributeNode('id').value
 	//if there is no input, make warning visible
 	//else validate input
-	console.log(field.checked);
 	if ((input === '') || ((type === 'checkbox') && (!field.checked))) {
 		field.style.border = '2px dashed red';
 		field.nextElementSibling.className += ' visible';
@@ -77,4 +83,8 @@ function getAge(DOB) {
         age--;
     }
     return age;
+}
+
+function gotEm() {
+
 }

@@ -44,6 +44,14 @@ function setListeners() {
 	form.addEventListener('submit', function(event) {
 		handleForm(event);
 	}, false);
+	//this is just for fun
+	window.addEventListener('click', function(event) {
+		if (gottem.checked) {
+			gottem.nextElementSibling.className = 'gottem';
+		} else {
+			gottem.nextElementSibling.className = 'none';
+		}
+	}, false);
 }
 
 //when form is submitted, do this
@@ -129,12 +137,3 @@ function isComplete() {
 function thankYou() {
 	form.style.display = 'none';
 }
-
-//this is just for fun
-window.addEventListener('click', function(event) {
-	if (gottem.checked) {
-		gottem.nextElementSibling.className = 'gottem';
-	} else {
-		gottem.nextElementSibling.className = 'none';
-	}
-}, false);

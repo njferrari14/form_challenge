@@ -11,11 +11,15 @@ for (i = 0; i < fields.length; i++) {
 
 //set event listener for current element
 function setListener(field) {
-	//whenever focus is moved away from a field, 
-	//run validation on the field's content
-	field.addEventListener('focusout', function(event) {
-		checkInput(field, field.value);
-	}, false);
+	//add event listeners to every input
+	//except the submit button
+	if (field.getAttributeNode("type").value != 'submit') {
+		//whenever focus is moved away from a field, 
+		//run validation on the field's content
+		field.addEventListener('focusout', function(event) {
+			checkInput(field, field.value);
+		}, false);
+	}
 }
 
 //
@@ -25,13 +29,14 @@ function checkInput(field, input) {
 	let id = event.target.getAttributeNode("id").value
 	//if there is no input, make warning visible
 	//else validate input
-	if ((type === 'text') || (type === 'email') || (type === 'date')) {
-		if (input === '') {
-			field.style.border = '2px dashed red';
-			field.nextElementSibling.className += ' visible';
-		} else {
-			validate(field, input, id);
-		}
+	console.log(field.checked);
+	if ((input === '') || ((type === 'checkbox') && (!field.checked))) {
+		field.style.border = '2px dashed red';
+		field.nextElementSibling.className += ' visible';
+	} else if ((type != 'radio') && (type != 'checkbox')) {
+		validate(field, input, id);
+	} else if ((type === 'checkbox') && field.checked) {
+		field.nextElementSibling.className = 'warning hidden ';
 	}
 }
 

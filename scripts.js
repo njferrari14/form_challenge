@@ -2,17 +2,14 @@
 let fields = document.querySelectorAll('input');
 let gottem = document.getElementById('r4');
 let button = document.getElementById('button');
+let form = document.querySelector('form');
 let validZip = /^\d{5}$|^\d{5}-\d{4}$/;
 let validName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
 let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 
-//loop to set event listeners on each field
-for (i = 0; i < fields.length; i++) {
-	setTabListeners(fields[i]);
-}
-
 //set listener on submit button
 button.addEventListener('click', function(event) {
+	//loop through all input elements and validate
 	for (i = 0; i < fields.length; i++) {
 		let type = fields[i].getAttributeNode('type').value;
 		if ((type != 'submit') && (type != 'radio')) {
@@ -20,6 +17,11 @@ button.addEventListener('click', function(event) {
 		}
 	}
 }, false);
+
+//loop to set event listeners on each input element
+for (i = 0; i < fields.length; i++) {
+	setTabListeners(fields[i]);
+}
 
 //set event listener for current element
 function setTabListeners(field) {
@@ -29,6 +31,7 @@ function setTabListeners(field) {
 	if ((type != 'submit') && (type != 'radio')) {
 		field.addEventListener('focusout', function(event) {
 			checkInput(field, field.value);
+			isComplete();
 		}, false);
 	}
 }
@@ -40,12 +43,13 @@ function checkInput(field, input) {
 	//if there is no input, make warning visible
 	//else validate input
 	if (((input === '') && (type != 'radio')) || ((type === 'checkbox') && (!field.checked))) {
-		field.style.border = '2px dashed red';
+		field.style.border = '2px solid red';
 		field.nextElementSibling.className += ' visible';
+		field.nextElementSibling.classList.remove('done');
 	} else if ((type != 'radio') && (type != 'checkbox') && (type != 'submit')) {
 		validate(field, input, id);
 	} else if ((type === 'checkbox') && field.checked) {
-		field.nextElementSibling.className = 'warning hidden ';
+		field.nextElementSibling.className = 'warning hidden done ';
 	}
 }
 
@@ -68,14 +72,16 @@ function validate(field, input, id) {
 	//if invalid, display correct warning, 
 	//else remove warning classes and turn border green
 	if (!isValid) {
-		field.style.border = '2px dashed red';
+		field.style.border = '2px solid red';
+		field.nextElementSibling.classList.remove('done');
 		field.nextElementSibling.className = 'warning hidden ' + id + '-warning';
 	} else {
 		field.style.border = '2px solid green';
-		field.nextElementSibling.className = 'warning hidden ';
+		field.nextElementSibling.className = 'warning hidden done ';
 	}
 }
 
+//calculate age from entered birthdate
 function getAge(DOB) {
     let today = new Date();
     let birthDate = new Date(DOB);
@@ -87,6 +93,16 @@ function getAge(DOB) {
     return age;
 }
 
+//check to see if all required fields are valid
+//set form border to green
+function isComplete() {
+	let finishedFields = document.querySelectorAll('.done');
+	if (finishedFields.length === 6) {
+		form.style.borderColor = 'green';
+	} else {
+		form.style.borderColor = 'yellow';
+	}
+}
 
 //this is just for fun
 window.addEventListener('click', function(event) {

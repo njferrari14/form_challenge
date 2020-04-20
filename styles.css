@@ -83,11 +83,62 @@ select {
 
 /********************/
 
+html, body {
+	width: 100%;
+	font-family: sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	width: 50%;
+	padding: 20px;
+	margin: 0 auto;
+	border: 10px solid yellow;
+	border-radius: 15px;
+}
+
+label:not(.last) {
+	display: block;
+}
+
+.q {
+	margin-top: 20px;
+}
+
+#fname, #lname, #email, #zip {
+	width: 100%;
+}
+
+
+#fname, #lname, #email, #zip, #bday {
+	border-radius: 5px;
+	padding-left: 5px;
+	border-color: yellow;
+}
+
+.button-box {]
+	width: 100%;
+	text-align: center;
+}
+
+#button {
+	border-radius: 5px;
+	font-size: 1.5em;
+	line-height: 1.5;
+}
+
 .r-block {
 	padding-right: 50px;
 	display: inline-block;
 }
 
+.r-block label {
+	display: inline-block;
+	margin-left: 15px;
+}
 
 .hidden {
 	visibility: hidden;
@@ -101,6 +152,11 @@ select {
 
 .visible {
 	visibility: visible;
+}
+
+.asterisk {
+	margin-top: 20px;
+	text-align: center;
 }
 
 .gottem {

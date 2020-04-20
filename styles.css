@@ -216,7 +216,7 @@ label:not(.last) {
 	display: inline-block;
 	position: absolute;
 	top: 0;
-	left: 100%;
+	left: 55%;
 	font-size: .8em;
 	color: blue;
 }

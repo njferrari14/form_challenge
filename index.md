@@ -16,7 +16,7 @@
 
 <body>
 <h1>Sign up for our rewards program!</h1>
-<form method="post">
+<form id="form" method="post">
 	<div class="fields">
 		<div class="field">
 			<label for="fname">First Name&#58;&#42;</label>
@@ -71,7 +71,7 @@
 			<span class="warning hidden">You must agree to terms & conditions in order to continue</span>
 		</div>
 		<div class="field button-box">
-			<input type="submit" id="button" name="button" value="Sign Up!">
+			<input type="submit" id="button" name="button" value="Sign Up!" form="form">
 		</div>
 	</div>
 	<p class="asterisk">&#42;denotes a required field</p>

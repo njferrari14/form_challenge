@@ -58,11 +58,21 @@ function setListeners() {
 function handleForm(event) {
 	//stop page refresh
 	event.preventDefault();
-	//disable the form
-	form.style.display = 'none';
-	header.innerText = 'Thank you!';
-	header.style.marginTop = '200px';
-	//say thank you
+	if(isComplete()) {
+		//disable the form
+		form.style.display = 'none';
+		header.innerText = 'Thank you!';
+		header.style.marginTop = '200px';
+		//say thank you
+	} else {
+		//loop through all input elements and validate
+		for (i = 0; i < fields.length; i++) {
+			let type = fields[i].getAttributeNode('type').value;
+			if ((type != 'submit') && (type != 'radio')) {
+				checkInput(fields[i], fields[i].value);
+			}
+		}
+	}
 
 }
 
@@ -129,8 +139,10 @@ function isComplete() {
 	let finishedFields = document.querySelectorAll('.done');
 	if (finishedFields.length === 6) {
 		form.style.border = '8px outset green';
+		return true;
 	} else {
 		form.style.borderColor = 'yellow';
+		return false;
 	}
 }
 
